@@ -5,7 +5,6 @@ const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const resultContainer = document.getElementById('result-container');
 const finalScoreElement = document.getElementById('final-score');
-const restartButton = document.getElementById('restart-btn');
 
 let shuffledQuestions, currentQuestionIndex;
 let quizScore = 0;
@@ -17,10 +16,7 @@ nextButton.addEventListener('click', () => {
     setNextQuestion();
 });
 
-restartButton.addEventListener('click', () => {
-    resultContainer.classList.add('hide');
-    startGame();
-});
+
 
 function startGame() {
     startButton.classList.add('hide');
