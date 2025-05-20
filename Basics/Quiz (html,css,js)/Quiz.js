@@ -122,6 +122,8 @@ const questions = [
         answer: [
             { text: 'Narendra Modi', correct: true },
             { text: 'Rahul Gandhi', correct: false },
+            { text: 'Manmohan Singh', correct: false},
+            { text: 'Jawaharlal Nehru', correct: false },
         ],
     },
     {
@@ -129,6 +131,36 @@ const questions = [
         answer: [
             { text: '6', correct: false },
             { text: '12', correct: true },
+            { text: '14', correct: false },
+            { text: '17', correct: false },
         ],
     },
+    {
+        question: 'which planet is known as Red planet?',
+        answer: [
+            { text: 'sun', correct: false },
+            { text: 'Earth', correct: false },
+            { text: 'Jupiter', correct: false },
+            { text: 'Mars', correct: true },
+        ],
+    },
+    {
+        question: 'How many days in yeap year?',
+        answer: [
+            { text: '364', correct: false },
+            { text: '366', correct: true },
+            { text: '365', correct: false },
+            { text: '363', correct: false },
+        ],
+    },
+    {
+        question: 'which animal is know as the "King of the jungle"?',
+        answer: [
+            { text: 'Tiger', correct: false },
+            { text: 'Monkey', correct: false },
+            { text: 'Lion', correct: true },
+            { text: 'Fox', correct: false },
+        ],
+    },
+    
 ];
