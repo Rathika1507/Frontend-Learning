@@ -1,0 +1,25 @@
+@keyframes blink{
+  0%{
+    background: indigo;
+ }
+ 30%{
+    background: red;
+ }
+ 50%{
+    background: yellow;
+ }
+ 70%{
+    background: green;
+ }
+ 100%{
+    background: blue;
+ }
+}
+
+div{
+    height: 400px;
+    width: 400px;
+    border: 1px solid black; 
+    animation: bink 10s infinite;
+    -webkit-animation: blink 10s infinite;
+}
