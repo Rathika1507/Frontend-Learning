@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Function</title>
+</head>
+<body>
+
+    <p id="square"></p>
+    <p id="sum"></p>
+    <p id="product"></p>
+    <p id="circle"></p>
+
+    <script>
+        // Square of a number
+        function My_function(val) {
+            document.getElementById("square").innerHTML = "Square is " + (val * val);
+        }
+        My_function(5);
+    </script>
+
+    <script>
+        // Sum using Function constructor
+        var Myfunction = new Function("a", "b", "return a + b");
+        var x = Myfunction(2, 3);
+        document.getElementById("sum").innerHTML = "The sum is " + x;
+    </script>
+
+    <script>
+        
+        function product(a, b)
+        {
+            return a * b;
+        }
+        let y = product(2, 5) * 5;
+        document.getElementById("product").innerHTML = "The product is " + y;
+    </script>
+
+    <script>
+        var body = "return Math.PI + rad + rad;";
+        var circle = new Function("rad", body);
+        alert( circle(5))
+    </script>
+
+</body>
+</html>

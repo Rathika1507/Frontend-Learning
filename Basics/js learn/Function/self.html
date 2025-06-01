@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>JavaScript Function</title>
+</head>
+<body>
+
+    <p id="demo"></p>
+
+    <script>
+        function My_function(val) {
+            document.getElementById("demo").innerHTML = val * val;
+        }
+
+        My_function(5);
+    </script>
+    <script>
+        var Myfunction = new Function("a","b","return a+b")
+        var x=Myfunction(2,3)
+        document.getElementById("demo").innerHTML = " The sum is " + x
+        
+    </script>
+    <script>
+        (function(){
+            alert("Hello! Welcome")
+        })()
+    </script>
+
+</body>
+</html>

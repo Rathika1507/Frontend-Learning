@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Javascript Tutorial</title>
+        <p id="demo"></p>
+    </head>
+    <body>
+        <script>
+            let car = new Promise(function(resolve,reject){
+                fuel_fullTrack= true;
+                if(fuel_fullTrack)
+                resolve()
+            else
+               reject()
+            });
+            car.then(function(){
+                document.write("The fuel tank is full.Happy Driving!!")
+            }).catch(function(){
+                document.write("The fuel is not empty.")
+            })
+        </script>
+    </body>
+</html>

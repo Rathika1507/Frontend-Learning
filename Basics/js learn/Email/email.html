@@ -1,0 +1,28 @@
+
+<html>
+<head>
+    <title>Email Validation</title>
+    <script>
+        function validate() {
+            var mail = document.getElementById("text").value;
+
+            
+            var regx = /^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,})$/;
+
+            if (regx.test(mail)) {
+                alert("You have provided a valid Email ID");
+                return true;
+            } else {
+                alert("Sorry! Incorrect Email ID");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input id="text" placeholder="Email" type="text"><br><br>
+        <button onclick="return validate()" type="button">Submit</button>
+    </form>
+</body>
+</html>
