@@ -215,9 +215,8 @@
   </style>
 </head>
 <body>
-
-  <!-- Use the same <head> as yours (not duplicated here for brevity) -->
-<!-- BEGIN BODY -->
+  </style>
+</head>
 <body>
   <header>
     <img src="mom.webp" alt="Snacks Logo">
@@ -225,8 +224,7 @@
   </header>
 
   <div class="container">
-    <!-- Snack cards -->
-    <div class="card">
+     <div class="card">
       <img src="muruku.jpg" alt="Muruku">
       <h2><span class="eng">Muruku</span> / <span class="tam">முறுக்கு</span></h2>
       <p>₹5 each</p>
@@ -321,10 +319,11 @@
     </label>
     <div class="button-group">
       <button onclick="submitOrder()">✅ Submit Order</button>
-      <button onclick="window.print()">🖨️ Print Receipt</button>
+      <button id="printBtn" onclick="window.print()" disabled>🖨️ Print Receipt</button>
     </div>
   </div>
-<script>
+
+  <script>
     function calculateTotal() {
       const items = [
         { id: 'muruku', name: 'Muruku', price: 5 },
@@ -402,6 +401,7 @@
         <p><strong>Address:</strong> ${address}</p>
       `;
       document.getElementById('customerInfo').innerHTML = customerHTML;
+      document.getElementById('printBtn').disabled = false;
     }
   </script>
 </body>
