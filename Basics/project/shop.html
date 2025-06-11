@@ -212,9 +212,24 @@
       text-align: center;
       margin-top: 20px;
     }
-  </style>
-</head>
-<body>
+
+    /* Print Style */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+
+      #orderSummary, #orderSummary * {
+        visibility: visible;
+      }
+
+      #orderSummary {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -224,7 +239,7 @@
   </header>
 
   <div class="container">
-     <div class="card">
+    <div class="card">
       <img src="muruku.jpg" alt="Muruku">
       <h2><span class="eng">Muruku</span> / <span class="tam">முறுக்கு</span></h2>
       <p>₹5 each</p>
@@ -281,16 +296,15 @@
     </div>
   </div>
 
-  <!-- Buttons and total -->
   <div style="text-align: center;">
     <button onclick="calculateTotal()">🧮 Calculate Total</button>
     <div id="total">Total: ₹0</div>
   </div>
 
-  <!-- Order Summary Section -->
+  <!-- Order Summary -->
   <div id="orderSummary">
     <h2 style="text-align: center;">🧾 Order Summary</h2>
-    <div id="customerInfo" class="customer-details" style="margin-bottom: 20px;"></div>
+    <div id="customerInfo" style="margin-bottom: 20px;"></div>
     <table>
       <thead>
         <tr>
@@ -316,6 +330,9 @@
     </label>
     <label><strong>Address:</strong>
       <textarea id="customerAddress" rows="3" required></textarea>
+    </label>
+    <label><strong>Preferred Delivery Time:</strong>
+      <input type="datetime-local" id="deliveryTime" required>
     </label>
     <div class="button-group">
       <button onclick="submitOrder()">✅ Submit Order</button>
@@ -373,6 +390,7 @@
       const name = document.getElementById('customerName').value.trim();
       const phone = document.getElementById('customerPhone').value.trim();
       const address = document.getElementById('customerAddress').value.trim();
+      const deliveryTime = document.getElementById('deliveryTime').value;
 
       if (name === '') {
         alert("Please fill in your Name.");
@@ -392,6 +410,12 @@
         return;
       }
 
+      if (!deliveryTime) {
+        alert("Please select your preferred delivery time.");
+        document.getElementById('deliveryTime').focus();
+        return;
+      }
+
       alert("✅ Order submitted successfully!");
       calculateTotal();
 
@@ -399,6 +423,7 @@
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Address:</strong> ${address}</p>
+        <p><strong>Delivery Time:</strong> ${new Date(deliveryTime).toLocaleString()}</p>
       `;
       document.getElementById('customerInfo').innerHTML = customerHTML;
       document.getElementById('printBtn').disabled = false;

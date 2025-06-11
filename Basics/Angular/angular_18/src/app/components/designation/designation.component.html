@@ -1,0 +1,17 @@
+<p>Designation works!</p>
+
+<div class="row">
+  <div
+    class="col-3"
+    *ngFor="let item of designationList; trackBy: trackById"
+  >
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ item.title }}</h4>
+        <p class="card-text">{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p *ngIf="designationList.length === 0">No designations found.</p>
