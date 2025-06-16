@@ -1,12 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // ✅ Required for *ngFor
+import { CommonModule } from '@angular/common'; 
 import { MasterService } from '../../services/master.service';
 import { APIResponseModel, IDesignation } from '../../model/interface/role';
 
 @Component({
   selector: 'app-designation',
   standalone: true,
-  imports: [CommonModule], // ✅ Enables *ngFor
+  imports: [CommonModule], 
   templateUrl: './designation.component.html',
   styleUrls: ['./designation.component.css']
 })
