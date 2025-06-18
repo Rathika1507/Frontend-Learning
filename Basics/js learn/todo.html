@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sky Background Todo List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      height: 100vh;
+      margin: 0;
+      padding-top: 60px;
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      width: 350px;
+      backdrop-filter: blur(8px);
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 68%;
+      padding: 10px;
+      font-size: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    input::placeholder {
+      color: #777;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 15px;
+      margin-left: 8px;
+      background-color: #00c853;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #009624;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      padding: 12px 15px;
+      margin: 10px 0;
+      background: #f4f4f4;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    li button {
+      background-color: #ff5252;
+      padding: 6px 10px;
+      font-size: 13px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    li button:hover {
+      background-color: #c62828;
+    }
+
+    .fa-trash {
+      margin-left: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🌤️Todo List</h2>
+    <div style="display:flex;">
+      <input id="input" placeholder="Enter new item">
+      <button onclick="add()">Add</button>
+    </div>
+    <ul id="list-container">
+      <li>Hello <button onclick="deleteItem(event)"><i class="fa fa-trash"></i> Delete</button></li>
+    </ul>
+  </div>
+
+  <script>
+    var ul = document.getElementById("list-container");
+    var input = document.getElementById("input");
+
+    function add() {
+      if (input.value.trim() === "") return;
+      var listitem = document.createElement("li");
+      listitem.innerHTML = input.value + " <button onclick='deleteItem(event)'><i class='fa fa-trash'></i> Delete</button>";
+      ul.append(listitem);
+      input.value = "";
+    }
+
+    function deleteItem(event) {
+      event.target.closest("li").remove();
+    }
+  </script>
+</body>
+</html>
