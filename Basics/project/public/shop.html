@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Selvi Indian Snacks</title>
+  <link rel="icon" href="mom.webp" type="image/webp">
+  <link rel="stylesheet" href="shop.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <nav style="text-align: right; padding: 10px;">
+  <a href="signup.html">Sign Up</a>|
+  <a href="signin.html">Sign In</a> |
+  <a href="shop.html">Home</a>| 
+  </nav>
+
+</head>
+<body>
+
+  <header>
+    <img src="mom.webp" alt="Snacks Logo" id="logo" onclick="speakText()" style="cursor: pointer;">
+    <h1>Selvi Snacks Corner</h1>
+  </header>
+
+  <div class="container">
+    <!-- Snack Cards -->
+    <div class="card">
+      <img src="muruku.jpg" alt="Muruku">
+      <h2><span class="eng">Muruku</span> / <span class="tam">முறுக்கு</span></h2>
+      <p>₹5 each</p>
+      <input type="number" id="muruku" min="0" value="0">
+    </div>
+
+    <div class="card">
+      <img src="thattai.jpg" alt="Thattai">
+      <h2><span class="eng">Thattai</span> / <span class="tam">தட்டை</span></h2>
+      <p>₹5 each</p>
+      <input type="number" id="thattai" min="0" value="0">
+    </div>
+
+    <div class="card">
+      <img src="Athirasam.webp" alt="Athirasam">
+      <h2><span class="eng">Athirasam</span> / <span class="tam">அதிரசம்</span></h2>
+      <p>₹6 each</p>
+      <input type="number" id="athirasam" min="0" value="0">
+    </div>
+
+    <div class="card">
+      <img src="rava.jpg" alt="Rava Ladoo">
+      <h2><span class="eng">Rava Ladoo</span> / <span class="tam">ரவா லட்டு</span></h2>
+      <p>₹10 each</p>
+      <input type="number" id="ravaLadoo" min="0" value="0">
+    </div>
+
+    <div class="card">
+      <img src="Somasu.jfif" alt="Somasu">
+      <h2><span class="eng">Somasu</span> / <span class="tam">சோமாஸ்</span></h2>
+      <p>₹10 each</p>
+      <input type="number" id="somasu" min="0" value="0">
+    </div>
+
+    <div class="card">
+      <img src="Porulvilangai urundai.jpg" alt="Porulvilangai Urundai">
+      <h2><span class="eng">Porulvilangai Urundai</span> / <span class="tam">பொறிவிளங்கை உருண்டை</span></h2>
+      <p>₹10 each</p>
+      <input type="number" id="porulvilangaiUrundai" min="0" value="0">
+    </div>
+
+    <div class="card">
+      <img src="cone shape porivilangai urundai.jpg" alt="Cone Porulvilangai Urundai">
+      <h2><span class="eng">Cone Porulvilangai Urundai</span> / <span class="tam">கோன் பொறிவிளங்கை உருண்டை</span></h2>
+      <p>₹200 each</p>
+      <input type="number" id="conePorulvilangaiUrundai" min="0" value="0">
+    </div>
+
+    <div class="card">
+      <img src="omapodi-2.jpg" alt="Omapodi">
+      <h2><span class="eng">Omapodi</span> / <span class="tam">ஓமப்பொடி</span></h2>
+      <p>₹50 each</p>
+      <input type="number" id="omapodi" min="0" value="0">
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <button onclick="calculateTotal()">🧮 Calculate Total</button>
+    <div id="total">Total: ₹0</div>
+  </div>
+   
+ <div id="orderSummary">
+    
+    <h2 style="text-align: center;">🧾 Order Summary</h2>
+    <div id="customerInfo"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th style="text-align: center;">Unit Price</th>
+          <th style="text-align: center;">Quantity</th>
+          <th style="text-align: right;">Total (₹)</th>
+        </tr>
+      </thead>
+      <tbody id="orderList"></tbody>
+    </table>
+    <p id="finalTotal">Final Total: ₹0</p>
+  </div>
+  
+  <div class="customer-form">
+    <h2>Customer Details</h2>
+    <label><strong>Name:</strong>
+      <input type="text" id="customerName" required>
+    </label>
+    <label><strong>Phone:</strong>
+      <input type="tel" id="customerPhone" required>
+    </label>
+    <label><strong>Address:</strong>
+      <textarea id="customerAddress" rows="3" required></textarea>
+    </label>
+    <label><strong>Preferred Delivery Time:</strong>
+      <input type="datetime-local" id="deliveryTime" required>
+    </label>
+    <div class="button-group">
+      <button onclick="submitOrder()">✅ Submit Order</button>
+      <button id="printBtn" onclick="window.print()" disabled>🖨️ Print Receipt</button>
+    </div>
+  </div>
+
+  <!-- Thank You Popup -->
+  <div id="thankYouPopup" style="display: none;"> <center>
+       🙏 <strong>Thank you!</strong><br>
+    Your order has been placed successfully.<br>
+    <small>Selvi Snacks Corner appreciates your support.</small><br><br>
+    <button onclick="document.getElementById('thankYouPopup').style.display='none'">OK</button>
+  </div>
+
+  <!-- Order Submitted Popup -->
+  <div id="popup" style="display: none;">
+    <div class="popup-content">
+      <p>Order submitted successfully!</p>
+      <button onclick="closePopup()">OK</button>
+    </div>
+  </div>
+ </center>
+  <script src="shop.js"></script>
+</body>
+</html>
